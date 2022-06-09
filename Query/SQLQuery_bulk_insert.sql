@@ -1,9 +1,11 @@
 use load_CSV
 GO
 
-bulk insert	Test_Table
-from 'A:\project\DB_interactions\D1.csv'
+bulk insert	dbo.Test_Table
+from 'A:\project\DB_interactions\LAST.csv'
 with
 (fieldterminator = ';',
 rowterminator = '\n',
-firstrow = 2)
+firstrow = 2,
+CHECK_CONSTRAINTS,
+KEEPNULLS)

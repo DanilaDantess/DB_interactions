@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "DB_Connect";
+}
+<h4>Введите данные о подключении:</h4>
+<!--Наименование сервера?-->
+<form asp-action="Import" asp-controller="Database" method="post" enctype="multipart/form-data">
+    <p>Наименование <b>Базы Данных:</b><br>
+        <input type="text" size="40">
+    </p>
+    <p>Наименование <b>Таблицы:</b><br>
+        <input type="text" size="40">
+    </p>
+    <input type="submit" value="Подключиться" />
+</form>

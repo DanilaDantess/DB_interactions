@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "ImportCSV";
+}
+<p>Наименование базы данных:</p>
+
+<p>Наименование Таблицы:</p>
+
+
+<h3>Выберите файл CSV для загрузки</h3>
+<form asp-action="Extractions" asp-controller="Database" method="post" enctype="multipart/form-data">
+    <p> <input type="file" accept=".csv" required="required" id="InputFile"/> </p>
+    <input type="submit" value="Отправить" />
+</form>
+<table cellpadding="15">
+<tr>
+    <td>
+<form asp-action="Connection" asp-controller="Database" method="post">
+    <input type="submit" value="<-- Подключение" />
+</form>
+    </td>
+    <td>
+<form asp-action="Extractions" asp-controller="Database" method="post">
+    <input type="submit" value="Взаимодействие -->" />
+</form>
+    </td>
+</tr>
+</table>

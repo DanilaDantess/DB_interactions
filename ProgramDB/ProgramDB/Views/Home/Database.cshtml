@@ -1,0 +1,19 @@
+﻿@using Microsoft.EntityFrameworkCore
+Вывод:
+@{
+    ViewData["Title"] = "Database";
+  
+// получение данных
+using (DBContext db = new DBContext())
+{
+    var table = db.tablica.FromSqlRaw("Select * From Test_Table").ToList();
+    /*var table = db.tablica.ToList();*/
+
+    // получаем объекты из бд и выводим на консоль
+    foreach (DBClass u in table)
+    {
+        Write($"{u.Id} {u.Ms} {u.Kontroller} {u.Sila_tyagi} {u.Napryajenie} {u.Tok_generatora} {u.Tor_kompressora} {u.Temp_gazov_B1} {u.Temp_gazov_A5} {u.Tok_ADT} {u.Vyhod_TNVD} {u.Chastota_vrascheniya} \n");
+    }
+}
+}
+Конец

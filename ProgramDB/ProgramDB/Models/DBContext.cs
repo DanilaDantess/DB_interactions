@@ -7,17 +7,22 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace ProgramDB.Models
 {
-    public class DBContext : IdentityDbContext<IdentityUser>
+    public class DBContext : DbContext
     {
        
-        public DbSet<DBClass> tablica => Set<DBClass>();
-        protected override void OnModelCreating(ModelBuilder builder)
+        public DbSet<DBClass> tablica { get; set; } = null!;
+        /*protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+        }*/
+        public void DBContext1()
+        {
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
-            optionBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=importCSV2;Trusted_Connection=True;");
+            optionBuilder.UseSqlServer("Server=DESKTOP-PC\\SQLEXPRESS;Database=load_CSV;Trusted_Connection=True;TrustServerCertificate=True;");
         }
     }
 }

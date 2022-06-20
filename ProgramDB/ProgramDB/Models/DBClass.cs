@@ -3,7 +3,7 @@
     public class DBClass
     {
         public int Id { get; set; }
-        public TimeSpan time { get; set; }
+        /*public TimeSpan time { get; set; }*/
         public Int16 Ms { get; set; }
         public Byte Kontroller { get; set; }
         public Decimal Sila_tyagi { get; set; }
